@@ -4,11 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/output.css" rel="stylesheet">
 </head>
 <body class="bg-zinc-900 text-white">
-    <nav class="bg-white/10 text-white px-4 py-2">
-        <a href="/task_all.php" class="py-2 px-2 hover:opacity-70">Tasks</a>
-        <a href="/user_all.php" class="py-2 px-2 hover:opacity-70">User</a>
+    <nav class="bg-white/10 text-white px-4 flex justify-between">
+        <div class="">
+            <a href="/tasks" class="px-4 py-4 inline-block hover:opacity-70 font-bold">Task Master</a>
+            <span class="text-xs text-gray-400">Welcome <?= $_SESSION["username"] ?></span>
+            <!-- <span>Userid <?= $_SESSION["user_id"] ?></span> -->
+        </div>
+        
+        <div class="">
+            <a href="/tasks" class="px-4 py-4 inline-block hover:opacity-70">Tasks</a>
+            <a href="/users" class="px-4 py-4 inline-block hover:opacity-70">User</a>
+        </div>
     </nav>
     <main class="max-w-3xl w-full mx-auto">

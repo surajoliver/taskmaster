@@ -11,6 +11,7 @@
     <div class="flex items-center gap-4 mb-4">
         <h1 class="text-2xl text-gray-100 font-semibold">Edit Task - <?= $record['task_name'] ?></h1>
         
+
     </div>
 
     <form method="POST" action="/task/edit" class="w-full py-8 px-12 bg-white/5 border border-green-100/5 rounded-md space-y-6">
@@ -54,9 +55,10 @@
             <p class="text-red-300 text-xs "><?= $errors['status'] ?? '' ?></p>
         </div>
 
-        <div>
-            <input type="hidden" name="task_id" value="<?= $task_id ?>" />
+        <input type="hidden" name="task_id" value="<?= $task_id ?>" />
+        <div class="space-x-2">
             <button class="bg-green-100/10 px-3 py-2 rounded-md shadow-sm text-sm font-semibold uppercase hover:bg-green-300/30" type="submit">Update</button>
+            <a href="/tasks" class=" px-3 py-2 rounded-md shadow-sm text-sm font-semibold uppercase hover:border-b hover:border-white/10" >Cancel</a>
         </div>
 
     </form>

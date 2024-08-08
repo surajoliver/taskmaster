@@ -34,9 +34,9 @@
             <label class="text-sm text-gray-300 font-semibold mb-2 inline-block">Priority</label>
             <select name="priority" class="border border-green-100/5 bg-white/10  shadow-sm w-full px-3 py-2 focus:outline-none focus:border-white/30 text-sm">
                 <option value="" class="bg-zinc-600 ">Please select a priority</option>
-                <option value="High" class="bg-zinc-600 " <?= $record['priority']==='High'? 'selected': ''?>>High</option>
-                <option value="Medium" class="bg-zinc-600 " <?= $record['priority']==='Medium'? 'selected': ''?>>Medium</option>
-                <option value="Low" class="bg-zinc-600 " <?= $record['priority']==='Low'? 'selected': ''?>>Low</option>
+                <option value="High" class="bg-zinc-600 " <?= $record['priority']??''==='High'? 'selected': ''?>>High</option>
+                <option value="Medium" class="bg-zinc-600 " <?= $record['priority']??''==='Medium'? 'selected': ''?>>Medium</option>
+                <option value="Low" class="bg-zinc-600 " <?= $record['priority']??''==='Low'? 'selected': ''?>>Low</option>
             </select>
             <p class="text-red-300 text-xs"><?= $errors['priority'] ?? '' ?></p>
         </div>
@@ -45,15 +45,16 @@
             <label class="text-sm text-gray-300 font-semibold mb-2 inline-block">Status</label>
             <select name="status" class="border border-green-100/5 bg-white/10  shadow-sm w-full px-3 py-2 focus:outline-none focus:border-white/30 text-sm">
                 <option value="" class="bg-zinc-600 ">Please select a status</option>
-                <option value="Pending" class="bg-zinc-600 " <?= $record['status']==='Pending'? 'selected': ''?>>Pending</option>
-                <option value="In Progress" class="bg-zinc-600 " <?= $record['status']==='In Progress'? 'selected': ''?>>In Progress</option>
-                <option value="Completed" class="bg-zinc-600 " <?= $record['status']==='Completed'? 'selected': ''?>>Completed</option>
+                <option value="Pending" class="bg-zinc-600 " <?= $record['status']??''==='Pending'? 'selected': ''?>>Pending</option>
+                <option value="In Progress" class="bg-zinc-600 " <?= $record['status']??''==='In Progress'? 'selected': ''?>>In Progress</option>
+                <option value="Completed" class="bg-zinc-600 " <?= $record['status']??''==='Completed'? 'selected': ''?>>Completed</option>
             </select>
             <p class="text-red-300 text-xs"><?= $errors['status'] ?? '' ?></p>
         </div>
 
-        <div>
+        <div class="space-x-2">
             <button class="bg-green-100/10 px-3 py-2 rounded-md shadow-sm text-sm font-semibold uppercase hover:bg-green-300/30" type="submit">Save</button>
+            <a href="/tasks" class=" px-3 py-2 rounded-md shadow-sm text-sm font-semibold uppercase hover:border-b hover:border-white/10" >Cancel</a>
         </div>
 
     </form>

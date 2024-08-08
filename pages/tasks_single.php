@@ -10,7 +10,8 @@ $record = Task::fetch_single($task_id);
 <section>
     <div class="flex items-center gap-4 mb-6 mt-12">
         <h1 class="text-2xl font-bold">Task Data - <?= $record['task_name'] ?></h1>
-        <a class="text-gray-300 font-bold text-sm underline" href="/task/edit?id=<?= $record['task_id'] ?>">Edit this Task</a>
+        <a class="text-gray-300 font-bold text-sm border border-gray-100 px-2 py-1 hover:opacity-70" href="/task/edit?id=<?= $record['task_id'] ?>">Edit this Task</a>
+        <a class="text-gray-300 font-bold text-sm underline" href="/tasks">Back to listing</a>
     </div>
     <?php //dd($record); ?>
     <div>

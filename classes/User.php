@@ -68,4 +68,55 @@ class User {
           
     }
 
+
+    public static function register($record) {
+        $conn = Database::getConnection();
+        $username = $record['username'] ?? '';
+        $email = $record['email'] ?? '';
+        $password = $record['password'] ?? '';
+        
+        $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
+        //dd($sql);
+
+        if ($conn->query($sql) != TRUE) {
+            dd("Error: " . $sql . "<br>" . $conn->error);
+        }
+        $userid = $conn->insert_id;
+        return $userid;
+    }
+
+    public static function login($record) {
+        $conn = Database::getConnection();
+        $email = $record['email'] ?? '';
+        $password = $record['password'] ?? '';
+
+        $message = '';
+        $code = 1;
+        $username = '';
+        $user_id = '';
+        
+        $sql = "SELECT user_id, username, password FROM users WHERE email = '$email' limit 1";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $row = mysqli_fetch_assoc($result);
+        } else {
+            $message = "Email id does not exists";
+            $code = -1;
+        }
+        if ($result->num_rows > 0 && $row['password'] != $record['password']) {
+            $message = "Password does not match";
+            $code = -1;
+        }
+
+        if ($code === 1) {
+            $message = 'Login successfull';
+            $username = $row['username'];
+            $user_id = $row['user_id'];
+        }
+        $conn->close(); 
+
+        return ['code'=>$code, 'message'=>$message, 'username'=>$username, 'user_id'=>$user_id];
+    }
+
 }

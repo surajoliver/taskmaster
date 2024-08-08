@@ -31,8 +31,9 @@
             <p class="text-red-300 text-xs"><?= $errors['password'] ?? '' ?></p>
         </div>
 
-        <div>
+        <div class="space-x-2">
             <button class="bg-green-100/10 px-3 py-2 rounded-md shadow-sm text-sm font-semibold uppercase hover:bg-green-300/30" type="submit">Save</button>
+            <a href="/users" class=" px-3 py-2 rounded-md shadow-sm text-sm font-semibold uppercase hover:border-b hover:border-white/10" >Cancel</a>
         </div>
 
     </form>

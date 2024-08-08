@@ -16,12 +16,17 @@ $routes = [
     ['method' => 'POST', 'uri' => '/tasks', 'action' => "scripts/tasks_store.php"],
     ['method' => 'POST', 'uri' => '/task/edit', 'action' => "scripts/tasks_update.php"],
     ['method' => 'POST', 'uri' => '/task/delete', 'action' => "scripts/tasks_delete.php"],
+
+    ['method' => 'GET', 'uri' => '/register', 'action' => "pages/register.php"],
+    ['method' => 'POST', 'uri' => '/register', 'action' => "scripts/register.php"],
+    ['method' => 'GET', 'uri' => '/login', 'action' => "pages/login.php"],
+    ['method' => 'POST', 'uri' => '/login', 'action' => "scripts/login.php"],
+    ['method' => 'POST', 'uri' => '/logout', 'action' => "scripts/logout.php"],
 ];
 
 foreach($routes as $route):
     if ($method === $route['method'] && getUri() === $route['uri']) {
         $params = uriParams();
-        echo $route['action'];
         require $route['action'];
         die();
     }

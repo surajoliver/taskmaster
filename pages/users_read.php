@@ -4,7 +4,7 @@
 <section>
     <div class="flex items-center gap-4 mb-6 mt-12">
         <h1 class="text-2xl font-bold">Users</h1>
-        <a class="text-2xl bg-navy-900 hover:opacity-70 font-bold text-sm underline underline" href="/users/create">New User</a>
+        <a class=" bg-navy-800 hover:opacity-70 uppercase text-xs tracking-wider underline underline-offset-8 inline-block" href="/users/create">New User</a>
     </div>
 
     <table class="w-full border border-white/10 rounded-md">

@@ -17,6 +17,21 @@ class Task {
         return $data;
     }
 
+    public static function fetch_all_for_user($user_id) {
+        $conn = Database::getConnection();
+        $sql = "SELECT task_id, task_name, description, due_date, priority, status FROM tasks where user_id = '$user_id'";
+        $result = $conn->query($sql);
+        $data = [];
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+        }
+        $conn->close(); 
+        return $data;
+    }
+
+    
     public static function fetch_single($task_id) {
         $conn = Database::getConnection();
         $sql = "SELECT task_id, task_name, description, due_date, priority, status FROM tasks WHERE task_id = '$task_id'";
@@ -37,7 +52,8 @@ class Task {
             $due_date = $record['due_date'] ?? '';
             $priority = $record['priority'] ?? '';
             $status = $record['status'] ?? '';
-            $sql = "INSERT INTO tasks (task_name, description, due_date, priority, status) VALUES ('$task_name', '$description', '$due_date', '$priority', '$status')";
+            $user_id = $record['user_id'] ?? '';
+            $sql = "INSERT INTO tasks (task_name, description, due_date, priority, status, user_id) VALUES ('$task_name', '$description', '$due_date', '$priority', '$status', '$user_id')";
             $conn->query($sql);
         }catch(Exception $e) {
             throw new Exception( "Error: " . $sql. "<br>" . $e->getMessage());

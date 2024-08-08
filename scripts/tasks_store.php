@@ -9,7 +9,8 @@
     $record['due_date'] = $_POST["due_date"] ?? '';
     $record['priority'] = $_POST["priority"] ?? '';
     $record['status'] = $_POST["status"] ?? '';
-
+    $record['user_id'] = $_SESSION["user_id"] ;
+    
     if ($record['task_name'] === '') {
         $errors['task_name'] = 'Task Name is a required field';
     }
