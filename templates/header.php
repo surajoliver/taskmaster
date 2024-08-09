@@ -14,9 +14,12 @@
             <!-- <span>Userid <?= $_SESSION["user_id"] ?></span> -->
         </div>
         
-        <div class="">
+        <div class="flex gap-2 items-center">
             <a href="/tasks" class="px-4 py-4 inline-block hover:opacity-70">Tasks</a>
-            <a href="/users" class="px-4 py-4 inline-block hover:opacity-70">User</a>
+            <?php echo $_SESSION["access"] == "admin" ? '<a href="/users" class="px-4 py-4 inline-block hover:opacity-70">User</a>': ''; ?>
+            <form action="/logout" method="POST">
+                <button type="submit" class="px-4 py-4 inline-block hover:opacity-70">Logout</button>
+            </form>
         </div>
     </nav>
     <main class="max-w-3xl w-full mx-auto">

@@ -22,6 +22,13 @@ if (count($errors) === 0) {
         $_SESSION["username"] = $message["username"];
         $_SESSION["user_id"] = $message['user_id'];
         $_SESSION["email"] = $record["email"];
+        if ($_SESSION["user_id"] == "1") {
+            $_SESSION["access"] = "admin"; 
+        } elseif ($_SESSION["user_id"] == "") {
+            $_SESSION["access"] = "guest"; 
+        } else {
+            $_SESSION["access"] = "auth"; 
+        }
 
         header("Location: /tasks");
         die();

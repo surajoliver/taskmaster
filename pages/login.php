@@ -24,8 +24,9 @@
             <p class="text-red-300 text-xs"><?= $errors['password'] ?? '' ?></p>
         </div>
 
-        <div class="space-x-2">
+        <div class="flex justify-between">
             <button class="bg-green-100/10 px-3 py-2 rounded-md shadow-sm text-sm font-semibold uppercase hover:bg-green-300/30" type="submit">Login</button>
+            <a href="/register" class="text-sky-300 text-sm hover:underline hover:opacity-70">No account ? Register yourself</a>
         </div>
 
     </form>

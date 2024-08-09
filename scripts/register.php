@@ -30,6 +30,13 @@ if (count($errors) > 0) {
     $_SESSION["username"] = $record["username"];
     $_SESSION["user_id"] = $userid;
     $_SESSION["email"] = $record["email"];
-
+    if ($_SESSION["user_id"] == "1") {
+        $_SESSION["access"] = "admin"; 
+    } elseif ($_SESSION["user_id"] == "") {
+        $_SESSION["access"] = "guest"; 
+    } else {
+        $_SESSION["access"] = "auth"; 
+    }
+    
     header("Location: /tasks");
 }
