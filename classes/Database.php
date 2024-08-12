@@ -6,7 +6,7 @@ class Database
     public static function getConnection() 
     {
         $servername = "localhost";
-        $username = "taskuser";
+        $username = "taskmaster";
         $password = "password";
         $dbname = "taskmaster";
 

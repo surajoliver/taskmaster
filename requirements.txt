@@ -1,0 +1,74 @@
+1. **TaskMaster - A Simple Task Management System**:
+Create a web app that allows users to add, view, edit, and delete tasks. 
+Tasks can have due dates and priority levels. 
+Users can mark tasks as completed and filter tasks based on different criteria. 
+Users can also log in and have their own personalized task lists.
+
+Schema strucutre
+1. **Users Table**:
+- user_id (Primary Key)
+- username
+- password (encrypted)
+- email
+
+2. **Tasks Table**:
+- task_id (Primary Key)
+- user_id (Foreign Key referencing Users table)
+- task_name
+- description
+- due_date
+- priority (Low, Medium, High)
+- status (Pending, In Progress, Completed)
+
+
+Site Map
+1. **Homepage**
+- Display welcome message
+- Login form
+- Register form
+
+2. **Dashboard**
+- View user's tasks summary
+- Filter tasks by status and priority
+- Add new task form
+- List of tasks with options to edit, delete, mark as completed
+
+3. **Task Details**
+- View task details: name, description, due date, priority, status
+- Edit task
+- Delete task
+- Mark task as completed
+
+4. **User Profile**
+- View user information
+- Edit user information
+- Change password
+- Logout option
+
+5. **Registration**
+- Register new user
+
+6. **Login**
+- Authenticate user
+
+
+SQL
+CREATE TABLE Users (
+user_id INT AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(50) NOT NULL,
+password VARCHAR(255) NOT NULL,
+email VARCHAR(100)
+);
+
+CREATE TABLE Tasks (
+task_id INT AUTO_INCREMENT PRIMARY KEY,
+user_id INT,
+task_name VARCHAR(100) NOT NULL,
+description TEXT,
+due_date DATE,
+priority ENUM('Low', 'Medium', 'High'),
+status ENUM('Pending', 'In Progress', 'Completed'),
+FOREIGN KEY (user_id) REFERENCES Users(user_id)
+);
+
+ALTER TABLE

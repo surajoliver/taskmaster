@@ -10,6 +10,7 @@ $routes = [
     ['method' => 'POST', 'uri' => '/user/delete', 'action' => "scripts/users_delete.php", 'access'=>'admin'],
 
     ['method' => 'GET', 'uri' => '/tasks', 'action' => "pages/tasks_read.php", 'access'=>'auth'],
+    ['method' => 'GET', 'uri' => '/', 'action' => "pages/welcome.php", 'access'=>'guest'],
     ['method' => 'GET', 'uri' => '/tasks/create', 'action' => "pages/tasks_create.php", 'access'=>'auth'],
     ['method' => 'GET', 'uri' => '/task/show', 'action' => "pages/tasks_single.php", 'access'=>'auth'],
     ['method' => 'GET', 'uri' => '/task/edit', 'action' => "pages/tasks_edit.php", 'access'=>'auth'],
@@ -24,13 +25,16 @@ $routes = [
     ['method' => 'POST', 'uri' => '/logout', 'action' => "scripts/logout.php", 'access'=>'auth'],
 ];
 
+//echo 'session of username in routes - '. $_SESSION["username"];
 foreach($routes as $route):
     if ($method === $route['method'] && getUri() === $route['uri']) 
     {
         $params = uriParams();
         if ($route['access'] !== 'guest' && $_SESSION["username"] === "") {
+            //echo 'redirect to login';
             require "pages/login.php";
         } else {
+            //echo 'redirect to ' . $route['action'];
             require $route['action'];
         }
         die();
