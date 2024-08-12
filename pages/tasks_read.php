@@ -2,12 +2,12 @@
 
 <?php 
 $user_id = $_SESSION["user_id"];
+
 if ($user_id===1) {
     $data = Task::fetch_all(); 
 } else {
     $data = Task::fetch_all_for_user($user_id);
 }
-
 ?>
 
 

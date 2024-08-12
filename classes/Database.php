@@ -6,9 +6,9 @@ class Database
     public static function getConnection() 
     {
         $servername = "localhost";
-        $username = "taskmaster";
-        $password = "password";
-        $dbname = "taskmaster";
+        $username = "taskmaster"; //u171687109_taskmaster
+        $password = "password";  //1/;vgUg#Ey
+        $dbname = "taskmaster";  //u171687109_taskmaster
 
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
